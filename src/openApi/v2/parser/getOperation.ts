@@ -35,6 +35,7 @@ export function getOperation(openApi: OpenApi, url: string, method: string, op: 
         parametersHeader: [...pathParams.parametersHeader],
         parametersCookie: [...pathParams.parametersCookie],
         parametersBody: pathParams.parametersBody,
+        parametersFormData: null, // should not be touched in V2
         imports: [],
         errors: [],
         results: [],

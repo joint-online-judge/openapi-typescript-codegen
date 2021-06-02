@@ -15,6 +15,7 @@ export function getOperationParameters(openApi: OpenApi, parameters: OpenApiPara
         parametersCookie: [],
         parametersHeader: [],
         parametersBody: null, // Not used in V3 -> @see requestBody
+        parametersFormData: null,
     };
 
     // Iterate over the parameters
@@ -34,12 +35,6 @@ export function getOperationParameters(openApi: OpenApi, parameters: OpenApiPara
 
                 case 'query':
                     operationParameters.parametersQuery.push(parameter);
-                    operationParameters.parameters.push(parameter);
-                    operationParameters.imports.push(...parameter.imports);
-                    break;
-
-                case 'formData':
-                    operationParameters.parametersForm.push(parameter);
                     operationParameters.parameters.push(parameter);
                     operationParameters.imports.push(...parameter.imports);
                     break;

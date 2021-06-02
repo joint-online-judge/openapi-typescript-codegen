@@ -15,6 +15,7 @@ export function getOperationParameters(openApi: OpenApi, parameters: OpenApiPara
         parametersCookie: [],
         parametersHeader: [],
         parametersBody: null,
+        parametersFormData: null,
     };
 
     // Iterate over the parameters

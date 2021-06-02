@@ -67,6 +67,9 @@ export class {{{name}}} {
                 {{/each}}
             },
             {{/if}}
+            {{#if parametersFormData}}
+            formData: {{{parametersFormData.name}}},
+            {{/if}}
             {{#if parametersBody}}
             body: {{{parametersBody.name}}},
             {{#if parametersBody.mediaType}}

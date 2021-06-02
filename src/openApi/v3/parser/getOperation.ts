@@ -39,6 +39,7 @@ export function getOperation(openApi: OpenApi, url: string, method: string, op: 
         parametersHeader: [...pathParams.parametersHeader],
         parametersCookie: [...pathParams.parametersCookie],
         parametersBody: pathParams.parametersBody,
+        parametersFormData: pathParams.parametersFormData,
         imports: [],
         errors: [],
         results: [],
@@ -65,7 +66,12 @@ export function getOperation(openApi: OpenApi, url: string, method: string, op: 
         operation.imports.push(...requestBody.imports);
         operation.parameters.push(requestBody);
         operation.parameters = operation.parameters.sort(sortByRequired);
-        operation.parametersBody = requestBody;
+
+        if (op.requestBody.content['multipart/form-data']) {
+            operation.parametersFormData = requestBody;
+        } else {
+            operation.parametersBody = requestBody;
+        }
     }
 
     // Parse the operation responses.
