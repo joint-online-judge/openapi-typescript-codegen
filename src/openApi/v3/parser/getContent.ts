@@ -26,5 +26,8 @@ export function getContent(openApi: OpenApi, content: Dictionary<OpenApiMediaTyp
     ) || (
         content['multipart/batch'] &&
         content['multipart/batch'].schema
+    ) || (
+        content['multipart/form-data'] &&
+        content['multipart/form-data'].schema
     ) || null;
 }
